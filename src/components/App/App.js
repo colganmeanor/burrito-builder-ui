@@ -19,11 +19,18 @@ class App extends Component {
       }))
   }
 
+  componentDidUpdate(prevState) {
+    getOrders()
+      .then(data => this.setState({
+        orders: data.orders
+      }))
+  }
+
   render() {
     return (
       <main className="App">
-        <header>
-          <h1>Burrito Builder</h1>
+        <header data-cy='header'>
+          <h1 data-cy='burrito builder title'>Burrito Builder</h1>
           <OrderForm />
         </header>
 
