@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <main className="App">
         <header data-cy='header'>
-          <h1 data-cy='burrito builder title'>Burrito Builder</h1>
+          <h1 data-cy='burrito-builder-title'>Burrito Builder</h1>
           <OrderForm />
         </header>
 
