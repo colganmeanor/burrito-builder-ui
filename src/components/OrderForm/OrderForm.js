@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { postOrder } from '../../apiCalls';
+import { getRandomNum } from '../../utilities';
 
 class OrderForm extends Component {
   constructor(props) {
@@ -24,13 +25,10 @@ class OrderForm extends Component {
     })
   }
 
- getRandomNum = (min, max) => {
-    return Math.random() * (max - min) + min;
-  }
 
   orderChecker = () => {
     const orderObj = {
-      id: this.getRandomNum(10, 1000),
+      id: getRandomNum(10, 1000),
       name: this.state.name,
       ingredients: this.state.ingredients
     }
