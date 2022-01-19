@@ -43,7 +43,7 @@ class OrderForm extends Component {
   }
 
   handleSubmit = e => {
-    // e.preventDefault();
+    e.preventDefault();
     this.orderChecker()
     this.clearInputs();
   }

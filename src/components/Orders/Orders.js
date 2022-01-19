@@ -5,11 +5,11 @@ import { getRandomNum } from '../../utilities';
 const Orders = ({ orders }) => {
   const orderEls = orders.map(order => {
     return (
-      <div key={getRandomNum(1, 10000)}className="order">
+      <div key={getRandomNum(1, 10000)} data-cy='order' className="order">
         <h3>{order.name}</h3>
-        <ul className="ingredient-list">
+        <ul data-cy='order-ingredient-list' className="ingredient-list">
           {order.ingredients.map(ingredient => {
-            return <li key={getRandomNum(1, 5000)}>{ingredient}</li>
+            return <li key={getRandomNum(1, 5000)} data-cy='order-ingredient'>{ingredient}</li>
           })}
         </ul>
       </div>
@@ -17,7 +17,7 @@ const Orders = ({ orders }) => {
   });
 
   return (
-    <section>
+    <section data-cy='order-section'>
       { orderEls.length ? orderEls : <p>No orders yet!</p> }
     </section>
   )
