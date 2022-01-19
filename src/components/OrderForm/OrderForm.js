@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { postOrder } from '../../apiCalls';
 
 class OrderForm extends Component {
   constructor(props) {
@@ -23,8 +24,29 @@ class OrderForm extends Component {
     })
   }
 
+ getRandomNum = (min, max) => {
+    return Math.random() * (max - min) + min;
+  }
+
+  orderChecker = () => {
+    const orderObj = {
+      id: this.getRandomNum(10, 1000),
+      name: this.state.name,
+      ingredients: this.state.ingredients
+    }
+     if(orderObj.name === ''){
+       alert('Missing Name! Name Required for order')
+     } else if (!orderObj.ingredients.length) {
+      alert('Hey bud, we need at least one ingredient for this burrito.')
+     } else {
+       postOrder(orderObj)
+     }
+
+  }
+
   handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
+    this.orderChecker()
     this.clearInputs();
   }
 
